@@ -24,8 +24,8 @@ let day_4 = () => {
     // => objects for ['barney', 'fred', 'pebbles']
 
     
-    let dropRightWhile = () => {
-
+    let dropRightWhile = (array, predicate) => {
+        
     }
 
     return dropRightWhile
