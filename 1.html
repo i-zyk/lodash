@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./util.js"></script>
+</head>
+<body>
+    
+    <script>
+    // import util from './util.js'
+
+
+// 创建一个切片数组，去除array中从 predicate 返回假值开始到尾部的部分。predicate 会传入3个参数： (value, index, array)。
+
+// var users = [
+//     { 'user': 'barney',  'active': true },
+//     { 'user': 'fred',    'active': false },
+//     { 'user': 'pebbles', 'active': false }
+//   ];
+   
+//   _.dropRightWhile(users, function(o) { return !o.active; });
+// => objects for ['barney']
+   
+// The `_.matches` iteratee shorthand.
+//   _.dropRightWhile(users, { 'user': 'pebbles', 'active': false });
+// => objects for ['barney', 'fred']
+   
+// The `_.matchesProperty` iteratee shorthand.
+//   _.dropRightWhile(users, ['active', false]);
+// => objects for ['barney']
+   
+// The `_.property` iteratee shorthand.
+//   _.dropRightWhile(users, 'active');
+// => objects for ['barney', 'fred', 'pebbles']
+
+var users = [
+    { 'user': 'barney',  'active': false },
+    { 'user': 'fred',    'active': false },
+    { 'user': 'pebbles', 'active': true }
+  ];
+let findIndex = (array, predicate=util.identity, fromIndex=0) => {
+  if (!array || !array.length) return []
+  predicate = util.getIteratee(predicate)
+  for ( let i = 0; i < array.length; i++ ) {
+    if(predicate(array[i])) {
+      return i
+    }
+  }
+  return -1
+}
+
+console.log( findIndex(users, { 'user': 'fred', 'active': false }) )
+
+    </script>
+</body>
+</html>

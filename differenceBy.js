@@ -30,8 +30,35 @@ let day_3 = () => {
         let exc = arg2.map( value => func(value) )
         return array.filter( value => !exc.includes(func(value)) )
     }
+    
 
     return {
         differenceBy
     }
 }
+
+// var junqu = {
+//     dropRightWhile: function(array, predicate = junqu.identity) {
+//         if (!array || !array.length) return [];
+//         predicate = junqu.getIteratee(predicate, 3);
+//         for (let i = array.length - 1; i >= 0; i--) {
+//           if (!predicate(array[i], i, array)) {
+//             // 只需要一个为false,就把前面的元素去除
+//             return array.slice(0, i + 1);
+//           }
+//         }
+//         return [];
+//       },
+
+//       identity: function(value) {
+//         return value;
+//       },
+    
+//       /*
+//        *iteratee的几种情况
+//        * */
+      
+    
+
+     
+// }

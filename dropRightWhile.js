@@ -1,4 +1,5 @@
-let day_4 = () => {
+import util from './util.js'
+
 
     // 创建一个切片数组，去除array中从 predicate 返回假值开始到尾部的部分。predicate 会传入3个参数： (value, index, array)。
     
@@ -23,10 +24,15 @@ let day_4 = () => {
     //   _.dropRightWhile(users, 'active');
     // => objects for ['barney', 'fred', 'pebbles']
 
-    
-    let dropRightWhile = (array, predicate) => {
-        
-    }
+    let dropRightWhile = (array, predicate=util.identity) => {
 
-    return dropRightWhile
-}
+        if (!array || !array.length) return [];
+        predicate = util.getIteratee(predicate, 3);
+        for (let i = array.length - 1; i >= 0; i--) {
+          if (!predicate(array[i], i, array)) {
+            // 只需要一个为false,就把前面的元素去除
+            return array.slice(0, i + 1);
+          }
+        }
+        return [];
+    }

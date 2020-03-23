@@ -20,8 +20,15 @@
 //   _.findIndex(users, 'active');
   // => 2
 
+import util from './util.js'
 
-
-let findIndex = () => {
-
+let findIndex = (array, predicate=util.identity, fromIndex=0) => {
+  if (!array || !array.length) return []
+  predicate = util.getIteratee(predicate)
+  for ( let i = 0; i < array.length; i++ ) {
+    if(predicate(array[i])) {
+      return i
+    }
+  }
+  return -1
 }
