@@ -5,3 +5,4 @@
 let flattenDeep = array => {  
     return [].concat( ...array.map( item => Array.isArray(item) ? flattenDeep(item) : item  ) )
 }
+// export default flattenDeep

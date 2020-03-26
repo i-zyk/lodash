@@ -8,3 +8,4 @@ let flatten = array => {
     }
     return arr
 }
+export default flatten
